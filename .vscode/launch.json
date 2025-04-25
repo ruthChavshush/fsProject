@@ -1,0 +1,58 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Launch Fetch-Web",
+      "configurations": ["Launch client", "Start Client", "Start Server"]
+    },
+    {
+      "name": "Npm install",
+      "configurations": ["Npm Install server", "Npm Install client"]
+    }
+  ],
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch client",
+      "url": "http://localhost:5173/",
+      "webRoot": "${workspaceFolder}/client"
+    },
+    {
+      "name": "Start Client",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "dev"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Start Server",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "dev"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Npm Install server",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/server",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["install"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Npm Install client",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/client",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["install"],
+      "console": "integratedTerminal"
+    }
+  ]
+}

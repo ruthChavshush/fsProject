@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+  src: url('./fonts/Inter-Regular.ttf') format('truetype');
+}
+
+.swal2-container {
+  z-index: 1000000;
+}

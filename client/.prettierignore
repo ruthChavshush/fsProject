@@ -1,0 +1,9 @@
+# Ignore artifacts:
+dist/
+node_modules/
+i18n-scripts/
+package-lock.json
+index.html
+fonts.css
+index.css
+*.svg

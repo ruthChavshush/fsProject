@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@shared/*": ["../shared/*"]
+    },
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types", "./types"]
+  },
+  "include": ["src/**/*.ts", "types/*"],
+  "exclude": ["node_modules", "./src/tests"],
+  "files": ["./types/custom.d.ts"]
+}
