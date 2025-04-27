@@ -1,6 +1,5 @@
-import { Divider, Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Post as PostType } from '@shared/types/post.type';
-import { Fragment } from 'react';
 import Post from './Post';
 
 type PostsProps = {
@@ -9,22 +8,23 @@ type PostsProps = {
 };
 
 const Posts: React.FC<PostsProps> = ({ posts, isEditable = false }) => {
-  return (
+  return posts.length > 0 ? (
     <Grid
       item
       container
       sx={{
         justifyContent: 'center',
         flexDirection: 'row',
-        // paddingX: '30vw',
-        padding:"2%"
+        padding: '2%',
       }}
       gap={5}
     >
-      {posts?.map((post: PostType, index) => (
-          <Post post={post} key={post._id} isEditable={isEditable} />
+      {posts.map((post: PostType) => (
+        <Post post={post} key={post._id} isEditable={isEditable} />
       ))}
     </Grid>
+  ) : (
+    <Typography sx={{ display: 'flex', justifyContent: 'center' }}>לא נמצאו נתונים</Typography>
   );
 };
 
