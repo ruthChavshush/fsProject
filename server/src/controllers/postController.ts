@@ -43,7 +43,20 @@ export const deletePost = async (req: Request, res: Response) => {
 
 export const getPosts = async (req: Request, res: Response) => {
   try {
-    const posts = await Post.find()
+    const filter: Record<string, any> = {};
+
+    // Loop through all query parameters
+    for (const key in req.query) {
+      const value = req.query[key];
+    
+      if (typeof value === 'string') {
+        // For string fields, do case-insensitive "contains" search using regex
+        filter[key] = { $regex: value, $options: 'i' };
+      } else {
+        // For non-string fields (arrays, numbers?), do exact match
+        filter[key] = value;
+      }
+    }    const posts = await Post.find(filter)
       .sort({ ['when']: -1 })
       .populate('user')
       .exec();
